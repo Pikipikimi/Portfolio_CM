@@ -1,0 +1,1024 @@
+/* ==========================================================================
+   GALERIE
+   ========================================================================== */
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.gallery-item {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    text-align: center;
+}
+
+.gallery-item img {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    max-width: 100%;
+    height: auto;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.03);
+}
+
+.gallery h4 {
+    margin: 10px 0;
+    color: #333;
+}
+
+/* ==========================================================================
+   RESET ET STYLES DE BASE
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styles de base pour le corps de la page */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styles des liens */
+a {
+    color: #800000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ff0000;
+}
+
+/* ==========================================================================
+   EN-TÊTE ET PIED DE PAGE
+   ========================================================================== */
+
+header, footer {
+    background-color: #800000;
+    color: #ecf0f1;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+header {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+footer {
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#menu-déroulant {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#menu-déroulant span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #ecf0f1;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ecf0f1;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   SECTIONS PRINCIPALES
+   ========================================================================== */
+
+main {
+    flex: 1;
+    padding: 2rem 0;
+}
+
+/* Style par défaut des sections pour toutes les pages sauf BTS */
+body:not(.page-bts) section {
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    padding: 2rem;
+    background-color: #fff0f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #ff0000;
+    text-align: center;
+}
+
+/* Style spécifique pour la page BTS */
+.page-bts section {
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    padding: 2.5rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Styles généraux pour les titres */
+h1, h2, h3, h4, h5, h6 {
+    color: #800000; /* Couleur par défaut pour h2-h6 */
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+/* Styles pour les titres sur toutes les pages SAUF la page BTS */
+body:not(.page-bts) h1,
+body:not(.page-bts) h2,
+body:not(.page-bts) h3,
+body:not(.page-bts) h4,
+body:not(.page-bts) h5,
+body:not(.page-bts) h6 {
+    color: #ff0000; /* Bleu clair pour tous les titres */
+}
+
+/* Styles spécifiques pour h1 */
+h1 { 
+    font-size: 2.5rem; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: color 0.3s ease;
+}
+
+/* Styles spécifiques pour h2 */
+h2 { 
+    font-size: 2rem; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Surcharge pour la page BTS */
+.page-bts h1 {
+    color: #ff0000; /* Même bleu clair que les autres titres */
+}
+
+.page-bts h2,
+.page-bts h3,
+.page-bts h4,
+.page-bts h5,
+.page-bts h6 {
+    color: #800000; /* Couleur d'origine pour les autres titres de la page BTS */
+}
+h3 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   STYLES SPÉCIFIQUES AUX PAGES
+   ========================================================================== */
+
+/* Page d'accueil */
+.page-accueil #presentation {
+    text-align: center;
+    background-color: #fff0f0;
+    border-left: 5px solid #ff0000;
+}
+
+/* Page BTS SIO */
+.page-bts .competences-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Page Projets */
+.page-projets h1 {
+    color: #ff0000;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: color 0.3s ease;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.page-projets .projet {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.page-projets .projet:last-child {
+    border-bottom: none;
+}
+
+/* Page Stage */
+.page-stage .experience {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #fff0f0;
+    border-radius: 6px;
+}
+
+/* Page Veille Technologique */
+.page-veille .article {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #fff0f0;
+    border-radius: 6px;
+    border-left: 4px solid #ff0000;
+}
+
+/* ==========================================================================
+   BOUTONS
+   ========================================================================== */
+
+/* Style des boutons de téléchargement - aligné avec la page BTS */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid #ff0000;
+    margin: 0.5rem;
+    font-size: 1rem;
+    background-color: transparent;
+    color: #ff0000;
+}
+
+.button:hover {
+    background-color: #ff0000;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style pour les boutons dans les cartes de veille */
+.veille-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Style pour le bouton du site */
+#bouton-site {
+    display: block;
+    margin: 20px auto;
+    padding: 0.8rem 1.8rem;
+    background-color: transparent;
+    color: #ff0000;
+    border: 2px solid #ff0000;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#bouton-site:hover {
+    background-color: #ff0000;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustement pour les petits écrans */
+@media (max-width: 768px) {
+    .veille-actions {
+        flex-direction: column;
+    }
+    
+    .button, #bouton-site {
+        width: 100%;
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+}
+
+/* ==========================================================================
+   RÉACTIVITÉ
+   ========================================================================== */
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------- */
+
+@media screen and (max-width: 768px) {
+    /* Navigation responsive */
+    #menu-déroulant {
+        display: block;
+        margin: 0 auto 15px;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Ajustements de la mise en page */
+    section {
+        padding: 1.5rem;
+        margin: 0 1rem 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    /* Styles spécifiques aux pages en mode mobile */
+    .page-bts .competences-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Petit écran */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    section {
+        padding: 1.25rem;
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------- */
+
+/* ==========================================================================
+   ÉLÉMENTS DE BASE
+   ========================================================================== */
+
+/* Listes */
+ul, ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+    line-height: 1.6;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem 0;
+    border-radius: 4px;
+}
+
+/* Citations */
+blockquote {
+    border-left: 4px solid #ff0000;
+    padding: 0.5rem 0 0.5rem 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #555;
+}
+
+/* Tableaux */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #fff0f0;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------- */
+
+/* Style global */
+body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* Arrière-plan avec image et superposition semi-transparente */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../Image/tribal-art-fond.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 1; /* Ajustez cette valeur pour modifier la transparence (0.1 = 10% d'opacité) */
+    z-index: -1;
+}
+
+
+/* Header & Footer */
+header, footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+footer {
+    margin-top: auto;
+}
+
+/* Style Navigation */
+header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+header nav ul {
+    display: flex;
+    flex-wrap: wrap; /* retour à la ligne si possible */
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    margin: 0 15px; /* Ajuste l'espacement entre les liens */
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+}
+
+/* Sections globales */
+section {
+    padding: 2em;
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Fond blanc légèrement transparent */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative; /* Pour s'assurer que le z-index fonctionne correctement */
+}
+
+#presentation {
+    margin-bottom: 20px;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #fff0f0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #ff0000;
+}
+
+/* Style spécifique pour les sections de projet */
+
+section[id^="projet"] {
+    background-color: #fff0f0;
+    margin-bottom: 30px; /* Augmenter l'espacement entre les sections */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajouter une ombre subtile */
+}
+
+
+section[id^="projet"] p {
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    line-height: 1.5; /* Améliorer la lisibilité */
+}
+
+/* Amélioration de la lisibilité sur mobile */
+@media screen and (max-width: 768px) {
+    section {
+        padding: 1em;
+        margin: 10px;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+    }
+    
+    h2 {
+        font-size: 1.3em;
+    }
+}
+
+/* Lien secret */
+.lien-secret {
+    text-decoration: none;
+    cursor: default;
+}
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------- */
+
+/* Images */
+
+body {
+    background-image: url("../Image&Vidéo/IMAGE/Baie-serveur.jpg"); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+}
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------- *
+
+/* ==========================================================================
+   CLASSES UTILITAIRES
+   ========================================================================== */
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+
+/* ==========================================================================
+   EFFETS DE SURVOL ET INTERACTIONS
+   ========================================================================== */
+
+.transition {
+    transition: all 0.3s ease;
+}
+
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.02);
+}
+
+/* ==========================================================================
+   ARRIÈRE-PLAN
+   ========================================================================== */
+
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../Image/tribal-art-fond.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 1;
+    z-index: -1;
+}
+
+/* ==========================================================================
+   GRID DE COMPÉTENCES BTS SIO
+   ========================================================================== */
+
+.competences-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.competences-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+    width: 100%;
+}
+
+.competence-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 320px;
+}
+
+.competence-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+}
+
+.competence-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 0, 0, 0.1);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.competence-card h3 {
+    color: var(--primary-color);
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+    text-align: center;
+}
+
+.competence-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    border-radius: 3px;
+}
+
+.page-bts .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid #ff0000;
+    margin: 0.5rem;
+    font-size: 1rem;
+    background-color: transparent;
+    color: #ff0000;
+}
+
+.page-bts .btn i {
+    margin-right: 0.5rem;
+}
+
+.page-bts .btn-primary {
+    background-color: transparent;
+    color: #ff0000;
+    border-color: #ff0000;
+}
+
+.page-bts .btn-primary:hover {
+    background-color: #ff0000;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.page-bts .btn-secondary {
+    background-color: #ff0000;
+    color: white;
+    border-color: #ff0000;
+}
+
+.page-bts .btn-secondary:hover {
+    background-color: transparent;
+    color: #ff0000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style pour les icônes */
+.page-bts .fas, 
+.page-bts .fab {
+    margin-right: 0.5rem;
+}
+
+/* Animation pour les cartes de compétences */
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.competence-card {
+    animation: cardAppear 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.competence-card:nth-child(1) { animation-delay: 0.1s; }
+.competence-card:nth-child(2) { animation-delay: 0.3s; }
+.competence-card:nth-child(3) { animation-delay: 0.5s; }
+
+/* Animation pour l'accordéon */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.programme-details[open] .programme-content {
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Styles pour les petits écrans */
+@media (max-width: 768px) {
+    .page-bts #presentation {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+    
+    .page-bts section {
+        padding: 1.5rem;
+        margin: 1.5rem 1rem;
+        max-width: calc(100% - 2rem);
+    }
+    
+    .page-bts h2 {
+        font-size: 1.75rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .btn {
+        width: 100%;
+        margin: 0.25rem 0;
+    }
+}
+
+/* Style pour les très grands écrans */
+@media (min-width: 1600px) {
+    .page-bts .container {
+        max-width: 1400px;
+    }
+}
+
+/* Style pour les titres des enseignements dans l'accordéon */
+.programme-summary {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+}
+
+/* Style spécifique pour la page BTS - aligné avec les autres pages */
+.page-bts section {
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    padding: 2rem;
+    background-color: #fff0f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #ff0000;
+}
+
+/* Amélioration de la structure des cartes */
+.competence-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    overflow: hidden;
+}
+
+.competence-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.competence-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 0, 0, 0.1);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: #ff0000;
+    transition: all 0.3s ease;
+}
+
+.competence-card h3 {
+    color: #800000;
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.competence-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: #ff0000;
+    border-radius: 3px;
+}
+
+.competence-list {
+    flex: 1;
+    margin: 1.5rem 0;
+    padding: 0;
+    list-style: none;
+}
+
+.competence-list li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.5;
+}
+
+.competence-list li::before {
+    content: '•';
+    color: #ff0000;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Ajustement pour les petits écrans */
+@media (max-width: 768px) {
+    .competences-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .competence-card {
+        padding: 1.25rem;
+    }
+    
+    .page-bts section {
+        padding: 1.5rem;
+        margin: 1rem;
+        max-width: calc(100% - 2rem);
+    }
+}

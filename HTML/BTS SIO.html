@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTS SIO - Monteil Clément</title>
+    <link rel="stylesheet" href="../CSS/CCS_Totale.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="fade-in page-bts">
+    <header>
+        <div class="container">
+            <h1>BTS SIO - Services Informatiques aux Organisations</h1>
+            <nav>
+                <button id="menu-déroulant" aria-label="Menu mobile">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>     
+                <ul id="navigation-liste"> 
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="BTS SIO.html" class="active">BTS SIO</a></li>
+                    <li><a href="Projet.html">Projets</a></li>
+                    <li><a href="Stage.html">Stage</a></li>
+                    <li><a href="Veille.html">Veille Technologique</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="presentation" class="fade-in">
+            <h2><i class="fas fa-graduation-cap"></i> Présentation du BTS SIO</h2>
+            <div class="presentation-content">
+                <p>Le <strong>BTS SIO (Services Informatiques aux Organisations)</strong> est une formation spécialisée dans la gestion des réseaux et des systèmes d'information. Ce diplôme de niveau Bac+2 permet d'acquérir des compétences techniques solides en administration de réseaux, programmation et maintenance informatique.</p>
+                
+                <p>Pour plus d'informations, vous pouvez consulter le site de l'école :</p>
+                
+                <div class="mt-3 mb-4">
+                    <a href="https://lyceesaintdenis.com/sio/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Voir le site du Lycée Saint-Denis
+                    </a>
+                </div>
+                
+                <div class="alert alert-info">
+                    <p><i class="fas fa-info-circle"></i> Le BTS SIO propose deux options principales :</p>
+                    <ul class="mt-2">
+                        <li><strong>SLAM</strong> (Solutions Logicielles et Applications Métiers)</li>
+                        <li><strong>SISR</strong> (Solutions d'Infrastructure, Systèmes et Réseaux)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="competences" class="mt-4 fade-in">
+            <h2><i class="fas fa-laptop-code"></i> Compétences acquises</h2>
+            
+            <div class="competences-grid">
+                <article class="competence-card">
+                    <div class="competence-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Programmation</h3>
+                    <ul class="competence-list">
+                        <li>Développement en Python</li>
+                        <li>Programmation en C#</li>
+                        <li>Développement Web (HTML, CSS, JavaScript)</li>
+                        <li>Bases de données (SQL)</li>
+                    </ul>
+                </article>
+                
+                <article class="competence-card">
+                    <div class="competence-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Systèmes et Réseaux</h3>
+                    <ul class="competence-list">
+                        <li>Administration Windows Server</li>
+                        <li>Gestion d'Active Directory</li>
+                        <li>Configuration réseau avancée</li>
+                        <li>Virtualisation (Hyper-V, VMware)</li>
+                    </ul>
+                </article>
+                
+                <article class="competence-card">
+                    <div class="competence-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Gestion de projet</h3>
+                    <ul class="competence-list">
+                        <li>Méthodes Agiles (Scrum)</li>
+                        <li>Gestion des risques</li>
+                        <li>Conduite de réunion</li>
+                        <li>Rédaction de documentation technique</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+        
+        <section id="programme" class="mt-4 fade-in">
+            <h2><i class="fas fa-book"></i> Programme de la formation</h2>
+            
+            <div class="programme-accordion">
+                <details class="programme-details">
+                    <summary class="programme-summary">Enseignements généraux</summary>
+                    <div class="programme-content">
+                        <ul>
+                            <li>Culture générale et expression</li>
+                            <li>Expression et communication en anglais</li>
+                            <li>Mathématiques pour l'informatique</li>
+                            <li>Culture économique, juridique et managériale</li>
+                        </ul>
+                    </div>
+                </details>
+                
+                <details class="programme-details">
+                    <summary class="programme-summary">Enseignements professionnels</summary>
+                    <div class="programme-content">
+                        <ul>
+                            <li>Développement d'applications</li>
+                            <li>Conception et maintenance de solutions logicielles</li>
+                            <li>Cybersécurité des services informatiques</li>
+                            <li>Support et mise à disposition de services</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="mt-auto">
+        <div class="container">
+            <p>&copy; 2024 - 2025 Monteil Clément - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <!-- Inclusion des fichiers JavaScript -->
+    <script src="../JS/Script_Mobile.js"></script>
+    <script>
+        // Script pour gérer l'accordéon du programme
+        document.addEventListener('DOMContentLoaded', function() {
+            const details = document.querySelectorAll('.programme-details');
+            
+            details.forEach(detail => {
+                const summary = detail.querySelector('.programme-summary');
+                
+                summary.addEventListener('click', function(e) {
+                    // Fermer les autres détails
+                    details.forEach(item => {
+                        if (item !== detail) {
+                            item.removeAttribute('open');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
